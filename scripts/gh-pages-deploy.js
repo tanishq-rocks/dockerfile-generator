@@ -3,6 +3,11 @@ const execa = require("execa");
 const fs = require("fs");
 (async () => {
   try {
+    // 
+    const branchName = "main";  // Offline system branch name
+    const remoteRepoAlias = "origin";   // Remote repository alias name
+    const remoteBranchName = "gh-pages";    // Remote repository branch name
+
     await execa("git", ["checkout", "--orphan", "gh-pages"]);
     // eslint-disable-next-line no-console
     console.log("Building started...");
@@ -12,9 +17,9 @@ const fs = require("fs");
     await execa("git", ["--work-tree", folderName, "add", "--all"]);
     await execa("git", ["--work-tree", folderName, "commit", "-m", "gh-pages"]);
     console.log("Pushing to gh-pages...");
-    await execa("git", ["push", "origin", "HEAD:gh-pages", "--force"]);
+    await execa("git", ["push", remoteRepoAlias, `HEAD:${remoteBranchName}`, "--force"]);
     await execa("rm", ["-r", folderName]);
-    await execa("git", ["checkout", "-f", "main"]);
+    await execa("git", ["checkout", "-f", branchName]);
     await execa("git", ["branch", "-D", "gh-pages"]);
     console.log("Successfully deployed, check your settings");
   } catch (e) {

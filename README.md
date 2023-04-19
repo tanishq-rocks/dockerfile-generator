@@ -48,10 +48,10 @@ Compiles and minifies for production
 npm run build
 ```
 
-Lints and fixes files
+Runs */scripts/gh-pages-deploy.js* (Automatic deployment configuration file)
 
 ```
-npm run lint
+npm run deploy
 ```
 
 ### Customize configuration
