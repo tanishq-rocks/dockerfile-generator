@@ -1,4 +1,4 @@
-# dockerfile_generator
+# Dockerfile Generator
 Anyone can generate Dockerfiles for their project through this interactive ui.
 
 ## Table Content
@@ -12,7 +12,7 @@ Anyone can generate Dockerfiles for their project through this interactive ui.
 
 ## Overview
 
-- [Live Demo](#)
+- [Live Demo](https://tanishq-rocks.github.io/dockerfile-generator/)
 
 ## Useful resources
 
